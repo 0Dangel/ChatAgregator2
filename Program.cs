@@ -7,13 +7,14 @@ if (!File.Exists(CONFIG_PATH))
 {
     Console.WriteLine("Config file  \"config.json\" not found");
     Console.WriteLine("Please input the proper file name:");
-    CONFIG_PATH = Console.ReadLine();
-    if (!File.Exists(CONFIG_PATH))
+    var newPath = Console.ReadLine();
+    if (!File.Exists(newPath))
     {
         //Todo: OpenFileDialog for easier navigation
-        Console.WriteLine("File does not exist, exiting");
+        Console.WriteLine("Files " + CONFIG_PATH + " & " + newPath + " does not exist, exiting");
         return;
     }
+    CONFIG_PATH = newPath;
 }
 
 var reader = new StreamReader(CONFIG_PATH);
